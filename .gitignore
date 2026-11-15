@@ -1,0 +1,26 @@
+# сборка
+build/
+dist/
+*.spec
+__pycache__/
+*.pyc
+
+# данные и настройки
+data/*.db
+data/*.db-shm
+data/*.db-wal
+data/tank_db.json
+data/map_spawns.json
+data/tank_icons/
+data/tanks.json
+config.json
+*.log
+
+# игровые файлы и реплеи
+*.mtreplay
+*.wotreplay
+*.pkg
+
+# временное
+.tmp/
+.prof/
