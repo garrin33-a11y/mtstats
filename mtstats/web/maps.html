@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Карты — MTstats</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">MT<span>stats</span></a>
+  <nav class="mainnav">
+    <a href="/">Дашборд</a>
+    <a href="/tanks">Танки</a>
+    <a href="/maps" class="active">Карты</a>
+    <a href="/setup" title="Настройка">Настройка</a>
+  </nav>
+  <div class="who">
+    <div class="player" id="playerName">—</div>
+    <div class="sub" id="dbInfo">загрузка…</div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div>
+    <h1>Карты</h1>
+    <p class="hint" id="mapsSummary">Загрузка…</p>
+  </div>
+</section>
+
+<nav class="periods compact">
+  <div class="tabs" id="tabs">
+    <button data-period="today">Сегодня</button>
+    <button data-period="week">Неделя</button>
+    <button data-period="month">Месяц</button>
+    <button data-period="year">Год</button>
+    <button data-period="all" class="active">Всё время</button>
+  </div>
+  <div class="range">
+    <input type="date" id="dateFrom" aria-label="с">
+    <span class="dash">—</span>
+    <input type="date" id="dateTo" aria-label="по">
+    <button class="btn ghost" id="applyBtn">Показать</button>
+  </div>
+</nav>
+
+<div class="banner" id="banner" hidden></div>
+
+<main>
+  <div class="toolbar">
+    <div class="toolbar-spacer"></div>
+    <input type="search" id="searchInput" placeholder="Поиск по названию карты…" aria-label="Поиск">
+  </div>
+
+  <div class="card table-card tanks-card">
+    <div class="table-wrap tall">
+      <table id="mapsTable" class="tanks-table"></table>
+    </div>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>Неофициальная фанатская программа · не связана с Lesta Games · не для коммерческого использования · <a class="link" href="/about">о программе</a></span>
+  <span id="footInfo"></span>
+</footer>
+
+<script src="/static/common.js"></script>
+<script src="/static/maps.js"></script>
+</body>
+</html>

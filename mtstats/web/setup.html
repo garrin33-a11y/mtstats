@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка — MTstats</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="setup-body">
+<header class="topbar">
+  <a class="brand" href="/">MT<span>stats</span></a>
+  <nav class="mainnav"><a href="/setup" class="active">Настройка</a></nav>
+  <div class="who"></div>
+</header>
+
+<main class="setup-main">
+  <div class="setup-card">
+    <div class="setup-logo">MTstats</div>
+    <h1>Статистика ваших боёв — из реплеев</h1>
+    <p class="setup-lead">
+      Программа читает файлы <b>.mtreplay</b> с вашего компьютера, считает статистику и показывает графики.
+      Всё локально: никуда ничего не отправляется.
+    </p>
+
+    <ol class="setup-steps">
+      <li class="done"><span>1</span><div><b>Укажите папку с реплеями</b><small>Обычно это <code>C:\Games\Tanki\replays</code></small></div></li>
+      <li><span>2</span><div><b>Программа прочитает бои</b><small>Первый раз это занимает до минуты</small></div></li>
+      <li><span>3</span><div><b>Смотрите статистику</b><small>Дашборд, танки, карты — за любой период</small></div></li>
+    </ol>
+
+    <div class="setup-block">
+      <h2>Папка с реплеями</h2>
+      <div class="setup-detected" id="detected"></div>
+
+      <div class="setup-input-row">
+        <input type="text" id="folderInput" placeholder="C:\Games\Tanki\replays" spellcheck="false">
+        <button class="btn ghost" id="browseBtn" hidden>Обзор…</button>
+        <button class="btn" id="connectBtn">Подключить</button>
+      </div>
+      <p class="setup-error" id="setupError" hidden></p>
+      <p class="setup-note">
+        Можно указать и другую папку — например, куда вы складываете реплеи вручную.
+        Нужна галочка «Сохранять реплеи» в настройках игры.
+      </p>
+    </div>
+
+    <p class="setup-disclaimer">
+      Это тестовая версия неофициальной фанатской программы. Не связана с Lesta Games,
+      не для коммерческого использования. <a class="link" href="/about">Подробнее о программе</a>.
+    </p>
+
+    <div class="setup-progress" id="setupProgress" hidden>
+      <div class="spinner"></div>
+      <div>
+        <b>Читаю реплеи…</b>
+        <small id="progressText">Это может занять до минуты, не закрывайте страницу</small>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/static/setup.js"></script>
+</body>
+</html>

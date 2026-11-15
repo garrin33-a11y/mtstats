@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О программе — MTstats</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">MT<span>stats</span></a>
+  <nav class="mainnav">
+    <a href="/">Дашборд</a>
+    <a href="/tanks">Танки</a>
+    <a href="/maps">Карты</a>
+    <a href="/setup">Настройка</a>
+  </nav>
+  <div class="who"></div>
+</header>
+
+<main class="setup-main">
+  <div class="setup-card">
+    <div class="setup-logo">О программе</div>
+    <h1>MTstats <span class="version-badge" id="versionLabel">тестовая версия</span></h1>
+    <p class="setup-lead">
+      Неофициальная фанатская программа для просмотра статистики боёв по файлам реплеев
+      «Мир танков». Работает локально: читает файлы на компьютере и ничего никуда не отправляет.
+    </p>
+
+    <div class="notice notice-warn">
+      <b>Это тестовая версия.</b> Возможны ошибки и изменения в интерфейсе. Данные считаются по
+      вашим реплеям и могут не совпадать с официальной статистикой игры.
+    </div>
+
+    <div class="notice">
+      <b>Неофициальный проект.</b> Программа не связана с Lesta Games, не одобрена и не поддерживается
+      ею. «Мир танков» и связанные материалы — собственность правообладателя.
+      Программа распространяется бесплатно, <b>не для коммерческого использования</b>.
+    </div>
+
+    <h2 class="about-h2">Что программа делает</h2>
+    <ul class="about-list">
+      <li>читает файлы <code>.mtreplay</code> из папки с реплеями;</li>
+      <li>считает статистику: урон, засвет, помощь, танкование, фарм, опыт, фраги, % побед;</li>
+      <li>строит графики за день, неделю, месяц, год и всё время;</li>
+      <li>показывает разрезы по танкам, картам и респаунам;</li>
+      <li>считает WN8 по ожидаемым значениям XVM, если они есть на компьютере.</li>
+    </ul>
+
+    <h2 class="about-h2">Чего программа не делает</h2>
+    <ul class="about-list">
+      <li>не изменяет клиент игры и не вмешивается в бой;</li>
+      <li>не читает память игры и не даёт преимуществ в бою;</li>
+      <li>не отправляет данные в интернет и не требует аккаунта;</li>
+      <li>не содержит файлов и картинок из игры — справочники собираются на вашем компьютере.</li>
+    </ul>
+
+    <h2 class="about-h2">Данные и приватность</h2>
+    <p class="about-text">
+      Все данные остаются у вас: настройки, база боёв и журнал лежат в
+      <code>%APPDATA%\MTstats</code>. Реплеи содержат ники других игроков — они видны только вам
+      и никуда не передаются.
+    </p>
+
+    <h2 class="about-h2">Лицензия</h2>
+    <p class="about-text">
+      Код распространяется по лицензии MIT. Программа использует открытые наработки сообщества:
+      декодер BigWorld PackedSection и данные ожидаемых значений XVM (читаются из вашего кэша XVM,
+      в комплект не входят).
+    </p>
+
+    <p class="about-text muted">
+      Статус: демонстрационная (тестовая) сборка. Сообщения об ошибках приветствуются.
+    </p>
+  </div>
+</main>
+
+<footer class="foot">
+  <span>Неофициальная фанатская программа · не связана с Lesta Games · не для коммерческого использования</span>
+  <span><a class="link" href="/">На главную</a></span>
+</footer>
+
+<script>
+  fetch('/api/status').then((r) => r.json()).then((data) => {
+    if (data && data.version) {
+      document.getElementById('versionLabel').textContent = 'версия ' + data.version;
+    }
+  }).catch(() => {});
+</script>
+</body>
+</html>

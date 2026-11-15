@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MTstats — статистика боёв «Мир танков»</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">MT<span>stats</span></a>
+  <nav class="mainnav">
+    <a href="/" class="active">Дашборд</a>
+    <a href="/tanks">Танки</a>
+    <a href="/maps">Карты</a>
+    <a href="/setup" title="Настройка">Настройка</a>
+  </nav>
+  <div class="who">
+    <div class="player" id="playerName">—</div>
+    <div class="sub" id="dbInfo">загрузка…</div>
+  </div>
+  <div class="actions">
+    <a class="btn ghost" id="csvLink" href="/api/export.csv?period=all">Экспорт CSV</a>
+    <button class="btn" id="refreshBtn">Обновить реплеи</button>
+  </div>
+</header>
+
+<nav class="periods">
+  <div class="tabs" id="tabs">
+    <button data-period="today">Сегодня</button>
+    <button data-period="week">Неделя</button>
+    <button data-period="month" class="active">Месяц</button>
+    <button data-period="year">Год</button>
+    <button data-period="all">Всё время</button>
+  </div>
+  <div class="range">
+    <input type="date" id="dateFrom" aria-label="с">
+    <span class="dash">—</span>
+    <input type="date" id="dateTo" aria-label="по">
+    <button class="btn ghost" id="applyBtn">Показать</button>
+  </div>
+  <div class="range-label" id="rangeLabel"></div>
+</nav>
+
+<div class="banner" id="banner" hidden></div>
+
+<main>
+  <section class="kpis" id="kpis"></section>
+
+  <section class="grid">
+    <article class="card">
+      <div class="card-head"><h2>Урон</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartDamage"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Засвет и помощь</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartSpot"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Танкование</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartBlocked"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Фарм</h2><span class="hint">чистые кредиты за бой</span></div>
+      <div class="chart" id="chartCredits"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Опыт</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartXp"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Процент побед</h2><span class="hint">накопительно, по боям</span></div>
+      <div class="chart" id="chartWinrate"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Эффективность</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartRating"></div>
+    </article>
+    <article class="card">
+      <div class="card-head"><h2>Фраги</h2><span class="hint">за каждый бой</span></div>
+      <div class="chart" id="chartKills"></div>
+    </article>
+  </section>
+
+  <section class="split">
+    <article class="card table-card">
+      <div class="card-head"><h2>По танкам</h2><span class="hint"><span id="tanksHint"></span> · <a class="link" href="/tanks">все танки →</a></span></div>
+      <div class="table-wrap"><table id="tanksTable"></table></div>
+    </article>
+    <article class="card table-card">
+      <div class="card-head"><h2>По картам</h2><span class="hint"><span id="mapsHint"></span> · <a class="link" href="/maps">все карты →</a></span></div>
+      <div class="table-wrap"><table id="mapsTable"></table></div>
+    </article>
+  </section>
+
+  <section class="card table-card">
+    <div class="card-head">
+      <h2>Журнал боёв</h2>
+      <span class="hint" id="logHint"></span>
+    </div>
+    <div class="table-wrap tall"><table id="logTable"></table></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Неофициальная фанатская программа · не связана с Lesta Games · не для коммерческого использования · <a class="link" href="/about">о программе</a></span>
+  <span id="footVersion"></span>
+</footer>
+
+<script src="/static/charts.js"></script>
+<script src="/static/common.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>
