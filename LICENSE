@@ -19,16 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Примечание к распространению (не часть лицензии MIT):
-
-Игра «Мир танков», её файлы, изображения техники и карт являются
-собственностью правообладателя (Lesta Games). В репозиторий не входят
-игровые ресурсы: справочники и картинки собираются на компьютере
-пользователя из его собственной установленной игры.
-
-Проект неофициальный, не связан с Lesta Games, не одобрен и не
-поддерживается ею. Проект распространяется бесплатно и не предназначен
-для коммерческого использования.
